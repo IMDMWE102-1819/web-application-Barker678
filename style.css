@@ -1,0 +1,157 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+/*makes the whole page into one space*/
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+.search {
+  width: 100%;
+  position: relative
+}
+
+.searchTerm {
+  float: left;
+  width: 100%;
+  border: 3px solid #00B4CC;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.searchTerm:focus{
+  color: #00B4CC;
+}
+
+.searchButton {
+  position: absolute;  
+  right: -50px;
+  width: 50px;
+  height: 36px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 1px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap{
+  width: 40%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.column {
+    width: 100%;
+}
+
+.carousel-inner > .carousel-item {
+  max-height: 400px;
+}
+
+.jumbotron {
+  padding: 0;
+  margin: 0;
+}
+
+.jumbotron-text-center {
+  width: 100%;
+  height: 400px;
+  display: block;
+  position: relative;
+  text-align: center;
+  color: black;
+  }
+  .bannerslide {
+    width: 100%;
+    height: 400px;
+    display: block;
+    position: relative;
+    text-align: center;
+    color: black;
+  }
+  .text {
+  position: relative;
+  max-width: 100%; /* Maximum width */
+  max-height: 100px;
+  margin: 0 auto; /* Center it */
+}
+.text .content {
+  position: absolute; /* Position the background text */
+  bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+  background: rgb(0, 0, 0); /* Fallback color */
+  background: rgba(0, 0, 0, 0.4); /* Black background with 0.4 opacity */
+  color: #f1f1f1; /* Grey text */
+  width: 100%; /* Full width */
+  padding: 5px; /* Some padding */
+}
+.col-sm-4 {
+  background: rgb(0, 0, 0); /* Fallback color */
+  background: rgba(0, 0, 0, 0.8); /* Black background with 0.8 opacity */
+  color: white;
+}
+.col-sm-8 {
+  background: rgb(0, 0, 0); /* Fallback color */
+  background: rgba(0, 0, 0, 0.4); /* Black background with 0.5 opacity */
+  color: #f1f1f1; /* Grey text */
+}
+body {
+    position: top;
+    justify-content: top;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: rgb(0, 0, 153);
+    color: rgb(192, 101, 101);
+    background-color: #645856;
+  }
+h2 {
+  position: absolute top;
+  column-rule: center;
+  letter-spacing: 1px;
+  text-align: left;
+  padding: 44px 0;
+}
+h3 {
+  position: absolute top;
+  column-rule:center;
+  letter-spacing: 1px;
+  text-align: center;
+  padding: 44px 0;
+}
+input[type=text], select, textarea {
+    width: 100%; /* Full width */
+    padding: 5px; /* Some padding */
+    border: 1px solid, white; /* Gray border */
+    border-radius: 1px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    margin-top: 6px; /* Add a top margin */
+    margin-bottom: 16px; /* Bottom margin */
+    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+/* Style the submit button with a specific background color etc */
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* When moving the mouse over the submit button, add a darker green color */
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+.container {
+   /* border-radius: 5px;*/
+    background-color: #f2f2f2;
+}

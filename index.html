@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Fetch API Sandbox</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  
+</head>
+<body>
+  <div class="container">
+    <h1 class="display-4 mb-4">Fetch API Sandbox</h1>
+    <div class="d-flex">
+      <button class="btn btn-primary mr-4" id="getText">Get Text</button>
+      <button class="btn btn-success mr-4" id="getUsers">Get JSON</button>
+      <button class="btn btn-warning mr-4" id="getPosts">Get API DATA</button>
+    </div>
+    <hr>
+    <div id="output"></div>
+    <form id="addPost">
+      <div class="form-group">
+        <input type="text" id="title" class="form-control" placeholder="Title">
+      </div>
+      <div class="form-group">
+        <textarea id="body" class="form-control" placeholder="Body"></textarea>
+      </div>
+      <input type="submit" class="btn btn-secondary" value="Submit">
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('getText').addEventListener('click', getText);
+    document.getElementById('getUsers').addEventListener('click', getUsers);
+    document.getElementById('getPosts').addEventListener('click', getPosts);
+    document.getElementById('addPost').addEventListener('submit', addPost);
+
+    function getText(){
+       fetch('sample.txt')
+       .then(function(res){
+         return res.text();
+       })
+       .then(function(data){
+        console.log(data);
+       });
+
+      fetch('sample.txt')
+      .then((res) => res.text())
+      .then((data) => {
+        document.getElementById('output').innerHTML = data;
+      })
+      .catch((err) => console.log(err))
+    }
+
+    function getUsers(){
+      fetch('users.json')
+      .then((res) => res.json())
+      .then((data) => {
+        let output = '<h2 class="mb-4">Users</h2>';
+        data.forEach(function(user){
+          output += `
+            <ul class="list-group mb-3">
+              <li class="list-group-item">ID: ${user.id}</li>
+              <li class="list-group-item">Name: ${user.name}</li>
+              <li class="list-group-item">Email: ${user.email}</li>
+            </ul>
+          `;
+        });
+        document.getElementById('output').innerHTML = output;
+      })
+    }
+
+    function getPosts (){
+      fetch('https://api.deezer.com/version/service/id/method/?parameters')
+      .then((res) => res.json())
+      .then((data) => {
+        let output = '<h2 class="mb-4">Posts</h2>';
+        data.forEach(function(post){
+          output += `
+            <div class="card card-body mb-3">
+              <h3>${post.album}</h3>
+              <p>${post.artist}</p>
+              <p>${post.chart}</p>
+              <p>${post.comment}</p>
+              <p>${post.editorail}</p>
+              <p>${post.episode}</p>
+              <p>${post.genre}</p>
+              <p>${post.infos}</p>
+              <p>${post.Oembed}</p>
+              <p>${post.options}</p>
+              <p>${post.playlist}</p>
+              <p>${post.podcast}</p>
+              <p>${post.radio}</p>
+              <p>${post.search}</p>
+              <p>${post.track}</p>
+              <p>${post.user}</p>
+            </div>
+          `;
+        });
+        document.getElementById('output').innerHTML = output;
+      })
+    }
+
+    function addPost(e){
+      e.preventDefault();
+
+      let album = document.getElementById('album').value;
+      let artist = document.getElementById('artist').value;
+      let chart = document.getElementById('chart').value;
+      let comment = document.getElementById('comment').value;
+      let editorail = document.getElementById('editorial').value;
+      let episode = document.getElementById('episode').value;
+      let genre = document.getElementById('genre').value;
+      let infos = document.getElementById('infos').value;
+      let Oembed = document.getElementById('Oembed').value;
+      let options = document.getElementById('options').value;
+      let playlist = document.getElementById('options').value;
+      let podcast = document.getElementById('podcast').value;
+      let radio = document.getElementById('radio').value;
+      let search = document.getElementById('search').value;
+      let track = document.getElementById('track').value;
+      let user = document.getElementById('user').value;
+
+      fetch('https://api.deezer.com/version/service/id/method/?parameters', {
+        method:'POST',
+        headers: {
+          'Accept': 'application/json, text/plain, */*',
+          'Content-type':'application/json'
+        },
+        body:JSON.stringify({title:title, body:body})
+      })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+    }
+  </script>
+</body>
+</html>
