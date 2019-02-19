@@ -1,0 +1,108 @@
+* {
+  box-sizing: border-box;
+}
+/*makes the whole page into one space*/
+
+html {
+  font-family: sans-serif;
+}
+/*in the album list wrapper i have made the background grey and also have made 4 columns
+for the data to fall into*/
+.album_list_wrapper {
+  background-color: grey;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  max-width: 100%;
+  font-size: 30px;
+  width: 100%;;
+  font-weight: bold;
+  font-family: monospace;
+  margin-bottom: 10px;
+}
+ul{
+  list-style: none;
+  color: black;
+}
+.album_list_wrapper > div{
+  padding-bottom: 10px;
+}
+.artist_name{
+  background-color: gray;
+  position: top;
+  padding: 10px;
+  font-family: Marker Felt, fantasy;
+  flex: 1;
+  max-width: 100%;
+}
+.artist_link{
+  color: black;
+  position: top;
+  font-family: monospace;
+  flex: 1;
+  max-width: 100%;
+}
+.artist_image {
+  background-color: gray;
+  position: top;
+  padding-right: 10px;
+  width: 25%;
+  height: 25%;
+  border-radius: 50%;
+  padding: 10px; 
+  flex: 0 0 65%;
+  max-width: 100%;
+  }
+  .error_image{
+    border-radius: 50%;
+    position: relative;
+    width: 25%;
+    height: 25%;
+  }
+  .nav-link{
+    color: azure
+  }
+body {
+    position: top;
+    justify-content: top;
+    align-items: center;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-family: monospace;
+    background-color: gray;
+  }
+  /*puts the main header in center and gives certain properties*/
+h1 {
+  column-rule:center;
+  letter-spacing: 1px;
+  text-align: center;
+  color: black;
+  font-family: Copperplate, "Copperplate Gothic Light", fantasy; 
+  font-size: 50px; 
+  font-style: normal; 
+  font-variant: small-caps; 
+  font-weight: 700; 
+  line-height: 45px;
+}
+h2 {
+  position: absolute top;
+  column-rule:center;
+  letter-spacing: 1px;
+  text-align: center;
+  padding: 44px 0;
+}
+h3 {
+  position: absolute top;
+  column-rule:center;
+  letter-spacing: 1px;
+  text-align: center;
+  padding: 44px 0;
+}
+p{
+  font-size: fit-content;
+  letter-spacing: 0.5;
+  column-rule: center;
+  color: whitesmoke;
+}
+
+
+
