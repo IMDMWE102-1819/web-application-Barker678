@@ -24,7 +24,7 @@
 <body>
 <div id="dz-root"></div>
   <!--For smaller devices to reset page-->
-    <div id="player" style="width:100%;"></div>
+  <div class="container-fluid">
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
       <span class="navbar-toggler-icon"></span>
@@ -41,11 +41,12 @@
     </div>
       <span class="navbar-text">
         <!--text on opposite from search box-->
-          <span class="oi oi-envolope"><a><h3>DEEZER API</h3></a></span>
+          <span class="oi-oi-envolope"><a><h3>DEEZER API</h3></a></span>
       </span>
   </nav>
+  </div>
 <div class="wrapper">
-<div class="artist_wrapper">
+<div class="artist-wrapper">
     <img class="artist_image" id="artist_image" alt=></img><!--This also works-->
     <h1 class="artist_name" id="artist_name"></h1><!--this one works! displayArtistInfo-->
     <h4 class="artist_link" id="artist_link"></h4>
@@ -120,7 +121,7 @@
 
         for (var i = 0; i < album_list.length; i++) {
           $('#album_list').append('<div id="album_info"><img src="'+album_list[i].cover_medium+'">');
-          $('#album_list').append('<p>' + album_list[i].title   + album_list[i].release_date+ '</p></div>')
+          $('#album_list').append('<p>'+ album_list[i].title+'<p>'+ 'Date Released: &nbsp;'   + album_list[i].release_date+ '</p></p></div>')
           //this is used to append the artists albums cover and names of albums and they're release date
         }
     }
@@ -147,5 +148,19 @@
     }
 });
   </script>
+  <footer class="section footer-classic context-dark bg-image" style="background: #2d3246;">
+        <div class="container">
+          <div class="row row-10">
+            <div class="col-md-4 col-xl-5">
+            </div>
+            </div>  
+        </div>
+        <div class="row no-gutters social-container">
+          <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-facebook"></span><span>Facebook</span></a></div>
+          <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-instagram"></span><span>instagram</span></a></div>
+          <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-twitter"></span><span>twitter</span></a></div>
+          <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-youtube-play"></span><span>google</span></a></div>
+        </div>
+      </footer>
 </body>
 </html>
