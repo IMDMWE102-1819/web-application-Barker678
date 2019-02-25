@@ -14,12 +14,6 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
   <!--Small white box for design purposes-->
-  <style>
-  .fakeimg {
-      height: 200px;
-      background: black;
-  }
-  </style>
 </head>
 <body>
 <div id="dz-root"></div>
@@ -31,7 +25,7 @@
     </button>
     <!--Search bar and search button-->
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
-          <a class="nav-link" href="deezerapi.html">Home</a>
+          <a class="nav-link" href="deezerapiworking.html">Home</a>
           <div class="search">
             <form class="artist-search">
               <input type="text" placeholder="Search Artist Name" id="input">
@@ -45,17 +39,26 @@
       </span>
   </nav>
   </div>
-<div class="wrapper">
-<div class="artist-wrapper">
     <img class="artist_image" id="artist_image" alt=></img><!--This also works-->
     <h1 class="artist_name" id="artist_name"></h1><!--this one works! displayArtistInfo-->
     <h4 class="artist_link" id="artist_link"></h4>
     <img id="error_image" class="error_image"></img>
     <div>
-    </div>
-</div><!--in these divs the classes are used to display the relevent information this is also 
-      how it is shown in css within the wrappers-->
-<div class="album_list_wrapper" id="album_list"></div> <!--It all works yay!-->
+        <div class="card-deck">
+            <div class="card">
+                <div class="album_list_wrapper" id="album_list">
+                    <img class="album_info" id="album_list">
+                        <h5 class="card-title"></h5>
+                        <p class="card-text"></p>
+                        <p class="card-text"><small class="text-muted"></small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+<!--in these divs the classes are used to display the relevent information this is also how it is shown in css within the wrappers-->
+
+
+<!--<div class="album_list_wrapper" id="album_list"></div>   It all works yay!-->
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://e-cdns-files.dzcdn.net/js/min/dz.js"></script>
@@ -121,7 +124,8 @@
 
         for (var i = 0; i < album_list.length; i++) {
           $('#album_list').append('<div id="album_info"><img src="'+album_list[i].cover_medium+'">');
-          $('#album_list').append('<p>'+ album_list[i].title+'<p>'+ 'Date Released: &nbsp;'   + album_list[i].release_date+ '</p></p></div>')
+          $('#album_list').append('<h5>'+ album_list[i].title+'</h5>')
+          $('#album_list').append('<p>'+ 'Date Released: &nbsp;'+ album_list[i].release_date+ '</p></div>')
           //this is used to append the artists albums cover and names of albums and they're release date
         }
     }
@@ -133,7 +137,8 @@
     }
     function getAlbumData() {
         return new Promise(function(resolve, reject) {
-            DZ.api("/artist/"+artist_info.id+"/albums?limit=10", function(response) {
+            DZ.api("/artist/"+artist_info.id+"/albums?limit=20", function(response) {
+                //you can change limit for more albums to appear
                 console.log('obtained album data', (response));
                 album_list = response.data;
                 //the response data from this function is stored as album_data
@@ -156,10 +161,10 @@
             </div>  
         </div>
         <div class="row no-gutters social-container">
-          <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-facebook"></span><span>Facebook</span></a></div>
-          <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-instagram"></span><span>instagram</span></a></div>
-          <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-twitter"></span><span>twitter</span></a></div>
-          <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-youtube-play"></span><span>google</span></a></div>
+          <div class="col"><a class="social-inner" href="deezerapiworking.html"><span class="icon mdi mdi-facebook"></span><span>Search an Artist</span></a></div>
+          <div class="col"><a class="social-inner" href="deezerapiworking.html"><span class="icon mdi mdi-instagram"></span><span>Uses Deezer API</span></a></div>
+          <div class="col"><a class="social-inner" href="deezerapiworking.html"><span class="icon mdi mdi-twitter"></span><span>Reset Page</span></a></div>
+          <div class="col"><a class="social-inner" href="deezerapiworking.html"><span class="icon mdi mdi-youtube-play"></span><span>Search an Artist</span></a></div>
         </div>
       </footer>
 </body>
